@@ -7,10 +7,10 @@ This script uses nsupdate to add a TXT record to all specified nameservers, in o
 I personally use dehydrated (link below) to run the script; I don't know if it works with any other letsencrypt clients.
 
 You have to change several variables at the top of the script, as these things will vary depending on your environment:
-  -which NS's to update
-  -name of your zone
-  -DNSSEC key path
-  -nsupdate binary path
+  - which NS's to update
+  - name of your zone
+  - DNSSEC key path
+  - nsupdate binary path
   
 If the script is not working, make sure all the variables at the top of the script are correct for your environment.
 
@@ -26,8 +26,7 @@ dehydrated (https://github.com/lukas2511/dehydrated)
 None that I'm aware of.
 
 # Demo
-$ ./dehydrated --cron --domain blog.iancaling.com --hook ./bind.py --challenge dns-01
-
+    $ ./dehydrated --cron --domain blog.iancaling.com --hook ./bind.py --challenge dns-01
     Processing blog.iancaling.com
      + Signing domains...
      + Creating new directory /home/ianl/dehydrated/certs/blog.iancaling.com ...
