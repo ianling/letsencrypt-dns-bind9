@@ -1,0 +1,5 @@
+1.1 -
+  - removed dependency on rndc because apparently it isn't necessary to reload the zone after using nsupdate
+  
+1.0 -
+  - initial release
