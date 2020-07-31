@@ -1,29 +1,27 @@
 # letsencrypt-dns-bind9
-A python2 script that handles Let's Encrypt's dns-01 challenge hooks for a BIND9 server.
+A python3 script that handles Let's Encrypt's dns-01 challenge hooks for a BIND9 server.
+
+See the `python2` branch for the legacy python2.x version.
 
 # Overview
-This script uses nsupdate to add a TXT record to all specified nameservers, in order to complete the dns-01 challenge for generating a Let's Encrypt cert.
+This script uses nsupdate to add a TXT record to all specified nameservers in order to complete the dns-01 challenge for generating a Let's Encrypt certificate.
 
 I personally use dehydrated (link below) to run the script; I don't know if it works with any other letsencrypt clients.
 
 You have to change several variables at the top of the script, as these things will vary depending on your environment:
-  - which NS's to update
+  - which nameserver(s) to use
   - name of your zone
   - DNSSEC key path
   - nsupdate binary path
   
 If the script is not working, make sure all the variables at the top of the script are correct for your environment.
+Additionally, verify that you have configured nsupdate properly to be able to make changes to your nameserver before
+attempting to use this script.
 
 # Requirements
-Python 2
-  - subprocess
-
-nsupdate (make sure it's working so that you're able to make changes to your BIND9 server remotely)
-
-dehydrated (https://github.com/lukas2511/dehydrated)
-
-# Known Issues
-None that I'm aware of.
+ * Python 3.6 (or above)
+ * nsupdate (test it on the command line first to verify that you're able to make changes to your BIND9 server remotely)
+ * dehydrated (https://github.com/lukas2511/dehydrated)
 
 # Demo
     $ ./dehydrated --cron --domain blog.iancaling.com --hook ./bind.py --challenge dns-01
